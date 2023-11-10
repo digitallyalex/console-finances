@@ -87,3 +87,25 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+
+//Total number of months included in the dataset
+console.log(finances.length)
+
+//Net total amount of Profit/Losses over the entire period
+// for (let i = 0; i <  // potential solution?
+//   array.length; i += 1) {
+//   // take every item in the array and add it to sum variable
+//   sum += array[i]
+
+//The average of the changes in Profit/Losses over the entire period
+
+
+
+//The average of the changes in profit over the entire period
+// (total/(numberofmonths - 1))
+
+
+//The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result.
+
+
+//The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
