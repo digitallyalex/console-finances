@@ -106,6 +106,12 @@ console.log(`Total: $${netProfit}`);
 let monthByMonthChange = 0;
 
 // (total/(numberofmonths - 1))
+for (var i = 1; i < totalMonths; i++) {
+  monthByMonthChange += finances[i][1] - finances[i - 1][1];
+}
 
+let changeAverage = monthByMonthChange / 85;
+
+console.log(`Average Change: ${changeAverage}`);
 
 //The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result. + The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
