@@ -89,28 +89,23 @@ const finances = [
 
 
 //Total number of months included in the dataset
+let totalMonths = finances.length;
 console.log(`Financial Analysis
 ----------------
-Total Months: ${finances.length}`);
+Total Months: ${totalMonths}`);
 
 //Net total amount of Profit/Losses over the entire period
-let totalProfit = 0;
-for (let i = 0; i < finances.length; i++) {
-  currentMonth = [i]
+let netProfit = 0;
+
+for (var i = 0; i < totalMonths; i++) {
+  netProfit += finances[i][1];
 }
 
-
-console.log(currentMonth)
-
+console.log(`Total: $${netProfit}`);
 //The average of the changes in Profit/Losses over the entire period
+let monthByMonthChange = 0;
 
-
-
-//The average of the changes in profit over the entire period
 // (total/(numberofmonths - 1))
 
 
-//The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result.
-
-
-//The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
+//The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result. + The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
