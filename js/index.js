@@ -1,4 +1,4 @@
-var finances = [
+const finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
   ['Mar-2010', 322013],
@@ -93,12 +93,14 @@ console.log(`Financial Analysis
 ----------------
 Total Months: ${finances.length}`);
 
-
 //Net total amount of Profit/Losses over the entire period
-// for (let i = 0; i <  // potential solution?
-//   array.length; i += 1) {
-//   // take every item in the array and add it to sum variable
-//   sum += array[i]
+let totalProfit = 0;
+for (let i = 0; i < finances.length; i++) {
+  currentMonth = [i]
+}
+
+
+console.log(currentMonth)
 
 //The average of the changes in Profit/Losses over the entire period
 
