@@ -89,7 +89,10 @@ var finances = [
 
 
 //Total number of months included in the dataset
-console.log(finances.length)
+console.log(`Financial Analysis
+----------------
+Total Months: ${finances.length}`);
+
 
 //Net total amount of Profit/Losses over the entire period
 // for (let i = 0; i <  // potential solution?
