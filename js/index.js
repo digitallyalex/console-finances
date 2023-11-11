@@ -90,8 +90,10 @@ const finances = [
 
 //Total number of months included in the dataset
 let totalMonths = finances.length;
+
+//First log
 console.log(`Financial Analysis
-----------------
+-------------------
 Total Months: ${totalMonths}`);
 
 //Net total amount of Profit/Losses over the entire period
@@ -101,6 +103,7 @@ for (let i = 0; i < totalMonths; i++) {
   netProfit += finances[i][1];
 }
 
+//Second log
 console.log(`Total: $${netProfit}`);
 //The average of the changes in Profit/Losses over the entire period
 let monthByMonthChange = 0;
@@ -110,11 +113,15 @@ for (let i = 1; i < totalMonths; i++) {
   monthByMonthChange += finances[i][1] - finances[i - 1][1];
 }
 
-let changeAverage = monthByMonthChange / 85;
+//average change rounded up to nearest 100th
+let changeAverage = (monthByMonthChange / (totalMonths - 1)).toFixed(2);
 
+//Third log
 console.log(`Average Change: ${changeAverage}`);
 
-//The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result. + The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
+//The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result. 
+//+ The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
+
 let firstDifference = finances[1][1] - finances[0][1];
 let greatestIncrease = [" ", firstDifference];
 let greatestLoss = [" ", firstDifference];
@@ -123,13 +130,16 @@ for (let i = 1; i < totalMonths; i++) {
   let currentProfit = finances[i][1];
   let previousProfit = finances[i - 1][1];
   let currentIncrease = currentProfit - previousProfit;
+  //calculates greatest increase
   if (currentIncrease > greatestIncrease[1]) {
     greatestIncrease = [finances[i][0], currentIncrease];
   }
+  //calculates greatest loss/decrease
   else if (currentIncrease < greatestLoss[1]) {
     greatestLoss = [finances[i][0], currentIncrease];
   }
 }
 
+//Fourth and last log
 console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease[0]} ($${greatestIncrease[1]})
 Greatest Decrease in Profits/Lsses: ${greatestLoss[0]} ($${greatestLoss[1]})`)
