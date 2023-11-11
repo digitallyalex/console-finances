@@ -97,7 +97,7 @@ Total Months: ${totalMonths}`);
 //Net total amount of Profit/Losses over the entire period
 let netProfit = 0;
 
-for (var i = 0; i < totalMonths; i++) {
+for (let i = 0; i < totalMonths; i++) {
   netProfit += finances[i][1];
 }
 
@@ -106,7 +106,7 @@ console.log(`Total: $${netProfit}`);
 let monthByMonthChange = 0;
 
 // (total/(numberofmonths - 1))
-for (var i = 1; i < totalMonths; i++) {
+for (let i = 1; i < totalMonths; i++) {
   monthByMonthChange += finances[i][1] - finances[i - 1][1];
 }
 
@@ -115,3 +115,21 @@ let changeAverage = monthByMonthChange / 85;
 console.log(`Average Change: ${changeAverage}`);
 
 //The greatest increase in Profit/Losses (date and amount) over the entire period. - highest change among all months including the month in the result. + The greatest decrease in Profit/Losses (date and amount) over the entire period. - lowest change among all months including the month in the result.
+let firstDifference = finances[1][1] - finances[0][1];
+let greatestIncrease = [" ", firstDifference];
+let greatestLoss = [" ", firstDifference];
+
+for (let i = 1; i < totalMonths; i++) {
+  let currentProfit = finances[i][1];
+  let previousProfit = finances[i - 1][1];
+  let currentIncrease = currentProfit - previousProfit;
+  if (currentIncrease > greatestIncrease[1]) {
+    greatestIncrease = [finances[i][0], currentIncrease];
+  }
+  else if (currentIncrease < greatestLoss[1]) {
+    greatestLoss = [finances[i][0], currentIncrease];
+  }
+}
+
+console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease[0]} ($${greatestIncrease[1]})
+Greatest Decrease in Profits/Lsses: ${greatestLoss[0]} ($${greatestLoss[1]})`)
